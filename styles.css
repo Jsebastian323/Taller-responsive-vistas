@@ -1,1 +1,457 @@
+/* ============================================================
+   DEVSTUDIO — Desktop Layout (>= 1024px)
+   Metodología BEM | Flexbox / CSS Grid | Sin JS
+   ============================================================ */
 
+/* ── Reset & base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ── Contenedor principal ─────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #1a1a2e;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.header__brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  padding: 7px 16px;
+  border-radius: 6px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.header__link:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* BEM modifier — enlace activo */
+.header__link--active {
+  color: #ffffff;
+  background-color: #5a5fcf;
+}
+
+.header__link--active:hover {
+  background-color: #4a4fbf;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: linear-gradient(160deg, #2d2b6b 0%, #4f46e5 50%, #7b5ea7 100%);
+  padding: 100px 0 110px;
+  text-align: center;
+}
+
+.hero__content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  font-size: 1.05rem;
+  color: #c4b5fd;
+  margin-bottom: 36px;
+}
+
+.hero__button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #4f46e5;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.hero__button:hover {
+  background-color: #ede9fe;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   INTRO
+   ============================================================ */
+.intro {
+  padding: 72px 0;
+  background-color: #f8fafc;
+}
+
+.intro__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.intro__text {
+  font-size: 0.975rem;
+  color: #475569;
+  max-width: 760px;
+  margin-bottom: 32px;
+  line-height: 1.75;
+}
+
+/* Card de tecnologías — fondo azul claro como en la referencia */
+.intro__card {
+  background-color: #e8f0fe;
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin-bottom: 24px;
+}
+
+.intro__card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.intro__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 4px;
+}
+
+.intro__list-item {
+  font-size: 0.95rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.intro__list-item::before {
+  content: '•';
+  color: #4f46e5;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.intro__footer-text {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services {
+  padding: 80px 0;
+  background-color: #f1f5f9;
+}
+
+.services__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ============================================================
+   CARDS — base
+   ============================================================ */
+.card {
+  border-radius: 14px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Service card: fondo oscuro índigo, texto blanco ──────── */
+.card--service {
+  background-color: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card--service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(79, 70, 229, 0.4);
+}
+
+.card--service .card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.card--service .card__text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card__button {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: background-color 0.2s;
+  margin-top: 4px;
+}
+
+.card__button:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ============================================================
+   PORTFOLIO
+   ============================================================ */
+.portfolio {
+  padding: 80px 0;
+  background-color: #f8fafc;
+}
+
+.portfolio__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 130px);
+  gap: 20px;
+}
+
+/* ── Portfolio card: fondo colorido, solo título centrado ─── */
+.card--portfolio {
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card--portfolio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+.card--portfolio .card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Colores por card — fila 1: azul, rojo, verde / fila 2: rojo, azul, verde */
+.card--portfolio-1 { background-color: #3b82f6; }
+.card--portfolio-2 { background-color: #ef4444; }
+.card--portfolio-3 { background-color: #22c55e; }
+.card--portfolio-4 { background-color: #ef4444; }
+.card--portfolio-5 { background-color: #3b82f6; }
+.card--portfolio-6 { background-color: #22c55e; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact {
+  padding: 80px 0;
+  background-color: #f1f5f9;
+}
+
+.contact__title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact__card {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 44px 48px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.925rem;
+  font-family: inherit;
+  color: #0f172a;
+  background-color: #f9fafb;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background-color: #ffffff;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botón enviar — ancho completo, degradado morado */
+.form__button {
+  width: 100%;
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+  color: #ffffff;
+  font-size: 0.975rem;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 14px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+
+.form__button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: #1a1a2e;
+  padding: 36px 0;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.footer__copy {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.footer__tagline {
+  font-size: 0.825rem;
+  color: #64748b;
+}
