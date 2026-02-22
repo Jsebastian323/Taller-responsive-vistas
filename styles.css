@@ -1,5 +1,5 @@
 /* ============================================================
-   DEVSTUDIO — Desktop Layout (>= 1024px)
+   DEVSTUDIO — Responsive Layout (mobile, tablet, desktop)
    Metodología BEM | Flexbox / CSS Grid | Sin JS
    ============================================================ */
 
@@ -454,4 +454,117 @@ ul {
 .footer__tagline {
   font-size: 0.825rem;
   color: #64748b;
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet (768px – 1023px)
+   ============================================================ */
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 32px;
+  }
+
+  .hero {
+    padding: 70px 0 80px;
+  }
+
+  .hero__title {
+    font-size: 2.2rem;
+  }
+
+  .services__title,
+  .portfolio__title,
+  .contact__title {
+    font-size: 1.6rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 130px);
+  }
+
+  .contact__card {
+    padding: 36px 40px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile (up to 767px)
+   ============================================================ */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header */
+  .header__inner {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .header__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 40px 0 50px;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero__button {
+    padding: 12px 28px;
+  }
+
+  /* Intro */
+  .intro__card {
+    padding: 24px 20px;
+  }
+
+  /* Services */
+  .services__title,
+  .portfolio__title,
+  .contact__title {
+    font-size: 1.3rem;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  /* Portfolio */
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* Contact */
+  .contact__card {
+    max-width: 100%;
+    padding: 28px 20px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 0;
+  }
 }
